@@ -24,10 +24,10 @@
             <td><?php echo $r->claveApi; ?></td>
             <td><?php echo $r->correo; ?></td>
             <td>
-                <a href="?c=Alumno&a=Crud&id=<?php echo $r->id; ?>">Editar</a>
+                <a href="?c=Alumno&a=Crud&id=<?php echo $r->IdUsuario; ?>">Editar</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Alumno&a=Eliminar&IdUsuario=<?php echo $r->id; ?>">Eliminar</a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=Alumno&a=Eliminar&IdUsuario=<?php echo $r->IdUsuario; ?>">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>

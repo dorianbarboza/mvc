@@ -13,7 +13,7 @@ class Alumno
     //public $FechaNacimiento;
     //public $Foto;
     public $correo;
-
+    
 	public function __CONSTRUCT()
 	{
 		try
@@ -77,7 +77,7 @@ class Alumno
 	{
 		try 
 		{
-			$sql = "UPDATE alumnos SET 
+			$sql = "UPDATE usuario SET 
 						nombre          = ?, 
 						contrasena        = ?,
                         claveApi        = ?,
@@ -104,7 +104,7 @@ class Alumno
 	{
 		try 
 		{
-		$sql = "INSERT INTO alumnos (nombre, contrasena, claveApi, correo) 
+		$sql = "INSERT INTO usuario (nombre, contrasena, claveApi, correo) 
 		        VALUES (?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
