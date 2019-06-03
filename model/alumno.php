@@ -3,8 +3,8 @@ class Alumno
 {
 	private $pdo;
     
-    public $id;
-    public $Nombre;
+    public $IdUsuario;
+    public $nombre;
     public $contrasena;
     public $claveApi;
     //public $Apellido;
@@ -12,7 +12,7 @@ class Alumno
     //public $FechaRegistro;
     //public $FechaNacimiento;
     //public $Foto;
-    public $Correo;
+    public $correo;
 
 	public function __CONSTRUCT()
 	{
@@ -43,7 +43,7 @@ class Alumno
 		}
 	}
 
-	public function Obtener($id)
+	public function Obtener($IdUsuario)
 	{
 		try 
 		{
@@ -51,7 +51,7 @@ class Alumno
 			          ->prepare("SELECT * FROM usuario WHERE IdUsuario = ?");
 			          
 
-			$stm->execute(array($id));
+			$stm->execute(array($IdUsuario));
 			return $stm->fetch(PDO::FETCH_OBJ);
 		} catch (Exception $e) 
 		{
@@ -59,14 +59,14 @@ class Alumno
 		}
 	}
 
-	public function Eliminar($id)
+	public function Eliminar($IdUsuario)
 	{
 		try 
 		{
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM usuario WHERE IdUsuario = ?");			          
 
-			$stm->execute(array($id));
+			$stm->execute(array($IdUsuario));
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
@@ -87,11 +87,11 @@ class Alumno
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
-                        $data->Nombre, 
+                        $data->nombre, 
                         $data->contrasena,
                         $data->claveApi,
-                        $data->Correo,
-                        $data->id
+                        $data->correo,
+                        $data->IdUsuario
 					)
 				);
 		} catch (Exception $e) 
@@ -110,10 +110,10 @@ class Alumno
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(
-                    $data->Nombre,
+                    $data->nombre,
                     $data->contrasena, 
                     $data->claveApi, 
-                    $data->Correo
+                    $data->correo
                 )
 			);
 		} catch (Exception $e) 

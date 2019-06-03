@@ -1,42 +1,36 @@
 <h1 class="page-header">
-    <?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?>
+    <?php echo $alm->IdUsuario != null ? $alm->nombre : 'Nuevo Registro'; ?>
 </h1>
 
 <ol class="breadcrumb">
   <li><a href="?c=Alumno">Alumnos</a></li>
-  <li class="active"><?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?></li>
+  <li class="active"><?php echo $alm->IdUsuario != null ? $alm->nombre : 'Nuevo Registro'; ?></li>
 </ol>
 
 <form id="frm-alumno" action="?c=Alumno&a=Guardar" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?php echo $alm->id; ?>" />
+    <input type="hidden" name="IdUsuario" value="<?php echo $alm->IdUsuario; ?>" />
     
     <div class="form-group">
         <label>Nombre</label>
-        <input type="text" name="Nombre" value="<?php echo $alm->Nombre; ?>" class="form-control" placeholder="Ingrese su nombre" data-validacion-tipo="requerido|min:3" />
+        <input type="text" name="nombre" value="<?php echo $alm->nombre; ?>" class="form-control" placeholder="Ingrese su nombre" data-validacion-tipo="requerido|min:3" />
     </div>
     
     <div class="form-group">
-        <label>Apellido</label>
-        <input type="text" name="Apellido" value="<?php echo $alm->Apellido; ?>" class="form-control" placeholder="Ingrese su apellido" data-validacion-tipo="requerido|min:10" />
+        <label>Contraseña</label>
+        <input type="text" name="contrasena" value="<?php echo $alm->contrasena; ?>" class="form-control" placeholder="Ingrese su contraseña" data-validacion-tipo="requerido|min:3" />
     </div>
     
     <div class="form-group">
+        <label>claveApi</label>
+        <input type="text" name="claveApi" value="<?php echo $alm->claveApi; ?>" class="form-control" placeholder="Ingrese su claveapi" data-validacion-tipo="requerido|min:3" />
+    </div>
+
+     <div class="form-group">
         <label>Correo</label>
-        <input type="text" name="Correo" value="<?php echo $alm->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <input type="text" name="correo" value="<?php echo $alm->correo; ?>" class="form-control" placeholder="Ingrese su correo" data-validacion-tipo="requerido|min:3" />
     </div>
     
-    <div class="form-group">
-        <label>Sexo</label>
-        <select name="Sexo" class="form-control">
-            <option <?php echo $alm->Sexo == 1 ? 'selected' : ''; ?> value="1">Masculino</option>
-            <option <?php echo $alm->Sexo == 2 ? 'selected' : ''; ?> value="2">Femenino</option>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label>Fecha de nacimiento</label>
-        <input readonly type="text" name="FechaNacimiento" value="<?php echo $alm->FechaNacimiento; ?>" class="form-control datepicker" placeholder="Ingrese su fecha de nacimiento" data-validacion-tipo="requerido" />
-    </div>
+
     
     <hr />
     

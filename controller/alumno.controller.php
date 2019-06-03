@@ -30,13 +30,13 @@ class AlumnoController{
     public function Guardar(){
         $alm = new Alumno();
         
-        $alm->id = $_REQUEST['IdUsuario'];
-        $alm->Nombre = $_REQUEST['nombre'];
+        $alm->IdUsuario = $_REQUEST['IdUsuario'];
+        $alm->nombre = $_REQUEST['nombre'];
         $alm->contrasena = $_REQUEST['contrasena'];
         $alm->claveApi = $_REQUEST['claveApi'];
-        $alm->Correo = $_REQUEST['correo'];
+        $alm->correo = $_REQUEST['correo'];
 
-        $alm->id > 0 
+        $alm->IdUsuario > 0 
             ? $this->model->Actualizar($alm)
             : $this->model->Registrar($alm);
         
