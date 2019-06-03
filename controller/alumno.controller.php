@@ -18,8 +18,8 @@ class AlumnoController{
     public function Crud(){
         $alm = new Alumno();
         
-        if(isset($_REQUEST['id'])){
-            $alm = $this->model->Obtener($_REQUEST['id']);
+        if(isset($_REQUEST['IdUsuario'])){
+            $alm = $this->model->Obtener($_REQUEST['IdUsuario']);
         }
         
         require_once 'view/header.php';
@@ -30,12 +30,11 @@ class AlumnoController{
     public function Guardar(){
         $alm = new Alumno();
         
-        $alm->id = $_REQUEST['id'];
-        $alm->Nombre = $_REQUEST['Nombre'];
-        $alm->Apellido = $_REQUEST['Apellido'];
-        $alm->Correo = $_REQUEST['Correo'];
-        $alm->Sexo = $_REQUEST['Sexo'];
-        $alm->FechaNacimiento = $_REQUEST['FechaNacimiento'];
+        $alm->id = $_REQUEST['IdUsuario'];
+        $alm->Nombre = $_REQUEST['nombre'];
+        $alm->contrasena = $_REQUEST['contrasena'];
+        $alm->claveApi = $_REQUEST['claveApi'];
+        $alm->Correo = $_REQUEST['correo'];
 
         $alm->id > 0 
             ? $this->model->Actualizar($alm)
@@ -45,7 +44,7 @@ class AlumnoController{
     }
     
     public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['id']);
+        $this->model->Eliminar($_REQUEST['IdUsuario']);
         header('Location: index.php');
     }
 }

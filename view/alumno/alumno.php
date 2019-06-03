@@ -19,11 +19,10 @@
     <tbody>
     <?php foreach($this->model->Listar() as $r): ?>
         <tr>
-            <td><?php echo $r->Nombre; ?></td>
-            <td><?php echo $r->Apellido; ?></td>
-            <td><?php echo $r->Correo; ?></td>
-            <td><?php echo $r->Sexo == 1 ? 'Hombre' : 'Mujer'; ?></td>
-            <td><?php echo $r->FechaNacimiento; ?></td>
+            <td><?php echo $r->nombre; ?></td>
+            <td><?php echo $r->contrasena; ?></td>
+            <td><?php echo $r->claveApi; ?></td>
+            <td><?php echo $r->correo; ?></td>
             <td>
                 <a href="?c=Alumno&a=Crud&id=<?php echo $r->id; ?>">Editar</a>
             </td>
